@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="business-card" size="1.000000 1.750000" />
+    <ImageTarget name="Poster" size="1.000000 0.712251" />
+    <ImageTarget name="MullenInterior" size="1.000000 0.558872" />
+    <ImageTarget name="Media-Card-r5-front" size="1.000000 1.411450" />
+  </Tracking>
+</QCARConfig>
