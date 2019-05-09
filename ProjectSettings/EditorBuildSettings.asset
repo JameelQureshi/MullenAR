@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AR_ImageTarget.unity
     guid: 69904ab17a2204a408af207ebeb0287a
+  - enabled: 1
+    path: Assets/Scenes/AR_MarkerLess.unity
+    guid: 3b7a494e956324b9faa0b40848960833
   m_configObjects: {}
