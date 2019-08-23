@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
@@ -8,17 +9,18 @@ public class MenuManager : MonoBehaviour
     public GameObject loading;
     public GameObject signUp;
     public GameObject message;
-
+    public GameObject submitLoading;
     public InputField nameInput;
-    public InputField phoneInput;
     public InputField emailInput;
-    public Dropdown personTypeSelect;
-    public string s_personType="Fan";
-    public string BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd33v6V4mlpj_SBwvZ9dZrECyS7z9E92G4NHjIHgHTwFtgc3A/formResponse";
+    public InputField messageInput;
+
+    string BASE_URL = "https://arhub.net/Php/UploadMullen.php";
     // Start is called before the first frame update
     void Start()
     {
-        loading.SetActive(false);   
+        loading.SetActive(false);
+        submitLoading.SetActive(false);
+        message.SetActive(false);
     }
 
 
@@ -46,53 +48,66 @@ public class MenuManager : MonoBehaviour
     }
 
 
-    public void SignUp()
+    public void Submit()
     {
         string name = nameInput.text;
-        string phone = phoneInput.text;
         string email = emailInput.text;
+        string message = messageInput.text;
 
-        if (name!="" && phone != "" && email != "")
+        if (name!="" && email != "" && message != "")
         {
-
-            StartCoroutine(PostData(name, phone, email,s_personType));
+            submitLoading.SetActive(true);
+             nameInput.text="";
+             emailInput.text="";
+             messageInput.text="";
+            StartCoroutine(PostData(name,email,message));
         }
        
     }
 
-    IEnumerator PostData(string name,string phone,string email,string personType)
+
+    IEnumerator PostData(string p_name, string p_email, string p_message)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.413578446", name);
-        form.AddField("entry.1476296251", phone);
-        form.AddField("entry.1725177634", email);
-        form.AddField("entry.516814386", personType);
-        byte[] rawData = form.data;
-        
-        WWW www = new WWW(BASE_URL,rawData);
-        yield return www;
-        signUp.SetActive(false);
-    }
+        form.AddField("name", p_name);
+        form.AddField("email", p_email);
+        form.AddField("message", p_message);
 
-    public void OnDropDownValueChanged()
-    {
-        switch (personTypeSelect.value)
+        using (UnityWebRequest www = UnityWebRequest.Post(BASE_URL, form))
         {
-            case 0:
-                s_personType = "Fan";
-                break;
-            case 1:
-                s_personType = "Investor";
-                break;
-            case 2:
-                s_personType = "Media";
-                break;
-            case 3:
-                s_personType = "Other";
-                break;
+            yield return www.SendWebRequest();
 
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+                submitLoading.SetActive(false);
+                message.SetActive(true);
+                message.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Error Uploading!";
+                Invoke("TurnOffMessage", 3);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+                if (www.downloadHandler.text == "Done")
+                {
+                    signUp.SetActive(false);
+                    message.SetActive(true);
+                    message.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Message Sent!";
+                    Invoke("TurnOffMessage", 3);
+                }
+                else
+                {
+                    message.SetActive(true);
+                    message.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Error Uploading!";
+                    Invoke("TurnOffMessage", 3);
+                }
+                submitLoading.SetActive(false);
+            }
         }
-
     }
 
+    void TurnOffMessage()
+    {
+        message.SetActive(false);
+    }
 }
