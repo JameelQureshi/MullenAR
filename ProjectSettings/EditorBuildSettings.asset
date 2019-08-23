@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 797e9263a8c9c473699fc445e5737c32
   - enabled: 1
+    path: Assets/Scenes/Qianto50K50360View.unity
+    guid: 9f5f3e4f98c464dd6a86e18a71c9f264
+  - enabled: 1
     path: Assets/Scenes/AR_ImageTarget.unity
     guid: 69904ab17a2204a408af207ebeb0287a
   - enabled: 1
