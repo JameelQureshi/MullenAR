@@ -5172,7 +5172,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1257187972}
-        m_MethodName: OpenInvestmentPage
+        m_MethodName: OpenInvestment
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12572,7 +12572,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1257187971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e475a581d8e34b189650d9cf532371a, type: 3}
+  m_Script: {fileID: 11500000, guid: a404457a6c5f74e9591a3d56d1ca62d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1257187973
@@ -19092,7 +19092,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1257187972}
-        m_MethodName: OpenLoungePage
+        m_MethodName: OpenLounge
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20484,15 +20484,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1793984092}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1257187972}
+        m_MethodName: OpenQianto50K50Info
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: /Mullen/mullenusa.com/qiantu-k50-h/qiantuK50info.html
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

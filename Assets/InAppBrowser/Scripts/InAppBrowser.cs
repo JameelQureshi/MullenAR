@@ -5,7 +5,30 @@ using System.IO;
 
 public class InAppBrowser : System.Object {
 
+	[StructLayout(LayoutKind.Sequential)]
+	public struct EdgeInsets {
+		public int top;
+		public int left;
+		public int right;
+		public int bottom;
+
+		public EdgeInsets(int horizontal, int vertical) {
+			top = vertical;
+			bottom = vertical;
+			left = horizontal;
+			right = horizontal;
+		}
+		
+		public EdgeInsets(int paddingTop, int paddingBottom, int paddingLeft, int paddingRight) {
+			top = paddingTop;
+			bottom = paddingBottom;
+			left = paddingLeft;
+			right = paddingRight;
+		}
+	}
+	[StructLayout(LayoutKind.Sequential)]
 	public struct DisplayOptions {
+		public EdgeInsets insets;
 		public string pageTitle;
 		public string backButtonText;
 		public string barBackgroundColor;
@@ -26,11 +49,25 @@ public class InAppBrowser : System.Object {
 		public bool shouldStickToLandscape;
 		[MarshalAs(UnmanagedType.U1)]
 		public bool androidBackButtonCustomBehaviour;
+		[MarshalAs(UnmanagedType.U1)]
+		public bool mixedContentCompatibilityMode;
+		[MarshalAs(UnmanagedType.U1)]
+		public bool webContentsDebuggingEnabled;
+		[MarshalAs(UnmanagedType.U1)]
+		public bool shouldUseWideViewPort;
+		[MarshalAs(UnmanagedType.U1)]
+		public bool hidesDefaultSpinner;
+		[MarshalAs(UnmanagedType.U1)]
+		public bool hidesHistoryButtons;
+		[MarshalAs(UnmanagedType.U1)]
+		public bool setLoadWithOverviewMode;
 
+		public string historyButtonsFontSize;
 		public string titleFontSize; 
 		public string titleLeftRightPadding;
 		public string backButtonFontSize;
 		public string backButtonLeftRightMargin;
+		public string historyButtonsSpacing;
 	}
 
 	private static DisplayOptions CreateDefaultOptions() {
@@ -112,6 +149,40 @@ public class InAppBrowser : System.Object {
 		#endif
 	}
 
+	public static bool CanGoBack() {
+		#if UNITY_IOS && !UNITY_EDITOR 
+			return iOSInAppBrowser.CanGoBack();
+		#elif UNITY_ANDROID && !UNITY_EDITOR
+			return AndroidInAppBrowser.CanGoBack();
+		#endif
+		return false;
+	}
+
+	public static bool CanGoForward() {
+		#if UNITY_IOS && !UNITY_EDITOR 
+			return iOSInAppBrowser.CanGoForward();
+		#elif UNITY_ANDROID && !UNITY_EDITOR
+			return AndroidInAppBrowser.CanGoForward();
+		#endif
+		return false;
+	}
+
+	public static void GoBack() {
+		#if UNITY_IOS && !UNITY_EDITOR 
+			iOSInAppBrowser.GoBack();
+		#elif UNITY_ANDROID && !UNITY_EDITOR
+			AndroidInAppBrowser.GoBack();
+		#endif
+	}
+
+	public static void GoForward() {
+		#if UNITY_IOS && !UNITY_EDITOR 
+			iOSInAppBrowser.GoForward();
+		#elif UNITY_ANDROID && !UNITY_EDITOR
+			AndroidInAppBrowser.GoForward();
+		#endif
+	}
+
 	public static void ClearCache() {
 		#if UNITY_IOS && !UNITY_EDITOR 
 			iOSInAppBrowser.ClearCache();
@@ -120,11 +191,17 @@ public class InAppBrowser : System.Object {
 		#endif
 	}
 
-	#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR 
 	private class AndroidInAppBrowser {
+
 		public static void OpenURL(string URL, DisplayOptions displayOptions) {
 			var currentActivity = GetCurrentUnityActivity();
 			GetInAppBrowserHelper().CallStatic("OpenInAppBrowser", currentActivity, URL, CreateJavaDisplayOptions(displayOptions));                                 
+		}
+
+		public static void GoForward(string URL, DisplayOptions displayOptions) {
+			var currentActivity = GetCurrentUnityActivity();
+			GetInAppBrowserHelper().CallStatic("GoForward", currentActivity, CreateJavaDisplayOptions(displayOptions));                                 
 		}
 
 		public static void LoadHTML(string HTML, DisplayOptions displayOptions) {
@@ -163,6 +240,26 @@ public class InAppBrowser : System.Object {
 			return helper;
 		}
 
+		public static bool CanGoForward() {
+			var currentActivity = GetCurrentUnityActivity();
+			return GetInAppBrowserHelper().CallStatic<bool>("CanGoForward", currentActivity);
+		}
+
+		public static bool CanGoBack() {
+			var currentActivity = GetCurrentUnityActivity();
+			return GetInAppBrowserHelper().CallStatic<bool>("CanGoBack", currentActivity);
+		}
+
+		public static void GoBack() {
+			var currentActivity = GetCurrentUnityActivity();
+			GetInAppBrowserHelper().CallStatic("GoBack", currentActivity);
+		}
+
+		public static void GoForward() {
+			var currentActivity = GetCurrentUnityActivity();
+			GetInAppBrowserHelper().CallStatic("GoForward", currentActivity);
+		}
+
 		private static AndroidJavaObject CreateJavaDisplayOptions(DisplayOptions displayOptions) {
 			var ajc = new AndroidJavaObject("inappbrowser.kokosoft.com.DisplayOptions");
 			if (displayOptions.pageTitle != null) {
@@ -193,9 +290,21 @@ public class InAppBrowser : System.Object {
 			ajc.Set<bool>("hidesTopBar", displayOptions.hidesTopBar);
 			ajc.Set<bool>("pinchAndZoomEnabled", displayOptions.pinchAndZoomEnabled);
 			ajc.Set<bool>("androidBackButtonCustomBehaviour", displayOptions.androidBackButtonCustomBehaviour);
+			ajc.Set<bool>("mixedContentCompatibilityMode", displayOptions.mixedContentCompatibilityMode);
+			ajc.Set<bool>("webContentsDebuggingEnabled", displayOptions.webContentsDebuggingEnabled);
+			ajc.Set<bool>("hidesDefaultSpinner", displayOptions.hidesDefaultSpinner);
+			ajc.Set<bool>("shouldUseWideViewPort", displayOptions.shouldUseWideViewPort);
+			ajc.Set<bool>("hidesHistoryButtons", displayOptions.hidesHistoryButtons);
+			ajc.Set<bool>("setLoadWithOverviewMode", displayOptions.setLoadWithOverviewMode);
 
 			if (displayOptions.titleFontSize != null) {
 				ajc.Set<int>("titleFontSize", int.Parse(displayOptions.titleFontSize));
+			}
+			if (displayOptions.historyButtonsFontSize != null) {
+				ajc.Set<int>("historyButtonsFontSize", int.Parse(displayOptions.historyButtonsFontSize));
+			}
+			if (displayOptions.historyButtonsSpacing != null) {
+				ajc.Set<int>("historyButtonsSpacing", int.Parse(displayOptions.historyButtonsSpacing));
 			}
 
 			if (displayOptions.titleLeftRightPadding != null) {
@@ -209,14 +318,30 @@ public class InAppBrowser : System.Object {
 			if (displayOptions.backButtonLeftRightMargin != null) {
 				ajc.Set<int>("backButtonLeftRightMargin", int.Parse(displayOptions.backButtonLeftRightMargin));
 			}
+			
+			if (displayOptions.insets.top != null) {
+				ajc.Set<int>("paddingTop", displayOptions.insets.top);
+			}
+			
+			if (displayOptions.insets.bottom != null) {
+				ajc.Set<int>("paddingBottom", displayOptions.insets.bottom);
+			}
+			
+			if (displayOptions.insets.left != null) {
+				ajc.Set<int>("paddingLeft", displayOptions.insets.left);
+			}
+			
+			if (displayOptions.insets.right != null) {
+				ajc.Set<int>("paddingRight", displayOptions.insets.right);
+			}
 
 			return ajc;
 		}
 
 	}
-	#endif
+#endif
 
-	#if UNITY_IPHONE && !UNITY_EDITOR
+#if UNITY_IPHONE && !UNITY_EDITOR
 	private class iOSInAppBrowser {
 
 		[DllImport ("__Internal")]
@@ -236,6 +361,18 @@ public class InAppBrowser : System.Object {
 
 		[DllImport ("__Internal")]
 		private static extern bool _IsInAppBrowserOpened();
+
+		[DllImport ("__Internal")]
+		private static extern bool _CanGoBack();
+
+		[DllImport ("__Internal")]
+		private static extern bool _CanGoForward();
+
+		[DllImport ("__Internal")]
+		private static extern void _GoBack();
+
+		[DllImport ("__Internal")]
+		private static extern void _GoForward();
 
 		public static void OpenURL(string URL, DisplayOptions displayOptions) {
 			_OpenInAppBrowser(URL, displayOptions);
@@ -260,6 +397,23 @@ public class InAppBrowser : System.Object {
 		public static bool IsInAppBrowserOpened() {
 			return _IsInAppBrowserOpened();
 		}
+
+		public static bool CanGoBack() {
+			return _CanGoBack();
+		}
+
+
+		public static bool CanGoForward() {
+			return _CanGoForward();
+		}
+
+		public static void GoBack() {
+			_GoBack();
+		}
+
+		public static void GoForward() {
+			_GoForward();
+		}
 	}
-	#endif
+#endif
 }

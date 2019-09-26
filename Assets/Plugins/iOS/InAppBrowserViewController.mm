@@ -32,6 +32,10 @@ void OnBrowserFinishedLoading(NSURLRequest *request) {
     SendToUnity(@"OnBrowserFinishedLoading", request.URL.absoluteString);
 }
 
+void OnBrowserStartedLoading(NSURLRequest *request) {
+    SendToUnity(@"OnBrowserStartedLoading", request.URL.absoluteString);
+}
+
 void OnBrowserClosed() {
     SendToUnity(@"OnBrowserClosed", @"");
 }
@@ -80,16 +84,25 @@ void OnBrowserFinishedLoadingWithError(NSURLRequest *request, NSError *error) {
     [self.view addSubview:webView];
     [self configureNavigationBar];
     [webView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    NSDictionary *metrics = @{
+                              @"left": [NSNumber numberWithFloat:_config.insets.left],
+                              @"right": [NSNumber numberWithFloat:_config.insets.right],
+                              @"top": [NSNumber numberWithFloat:_config.insets.top],
+                              @"bottom": [NSNumber numberWithFloat: _config.insets.bottom]
+                              };
+
+    
     [self.view addConstraints:[NSLayoutConstraint
-                               constraintsWithVisualFormat:@"H:|-0-[webView]-0-|"
+                               constraintsWithVisualFormat:@"H:|-left-[webView]-right-|"
                                options:NSLayoutFormatDirectionLeadingToTrailing
-                               metrics:nil
+                               metrics:metrics
                                views:NSDictionaryOfVariableBindings(webView)]];
     
     [self.view addConstraints:[NSLayoutConstraint
-                               constraintsWithVisualFormat:@"V:|-0-[webView]-0-|"
+                               constraintsWithVisualFormat:@"V:|-top-[webView]-bottom-|"
                                options:NSLayoutFormatDirectionLeadingToTrailing
-                               metrics:nil
+                               metrics:metrics
                                views:NSDictionaryOfVariableBindings(webView)]
      ];
     
@@ -173,23 +186,26 @@ void OnBrowserFinishedLoadingWithError(NSURLRequest *request, NSError *error) {
     }
     
     self.indicatorView = indicator;
-    [self.view addSubview:_indicatorView];
-    [_indicatorView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addConstraints:@[[NSLayoutConstraint constraintWithItem:_indicatorView
-                                                             attribute:NSLayoutAttributeCenterX
-                                                             relatedBy:NSLayoutRelationEqual
-                                                                toItem:self.view
-                                                             attribute:NSLayoutAttributeCenterX
-                                                            multiplier:1.f constant:0.f],
-                                [NSLayoutConstraint constraintWithItem:_indicatorView
-                                                             attribute:NSLayoutAttributeCenterY
-                                                             relatedBy:NSLayoutRelationEqual
-                                                                toItem:self.view
-                                                             attribute:NSLayoutAttributeCenterY
-                                                            multiplier:1.f constant:0.f]
-                                ]
-     
-     ];
+    if (!_config.hidesDefaultSpinner) {
+        [self.view addSubview:_indicatorView];
+        [_indicatorView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.view addConstraints:@[[NSLayoutConstraint constraintWithItem:_indicatorView
+                                                                 attribute:NSLayoutAttributeCenterX
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.view
+                                                                 attribute:NSLayoutAttributeCenterX
+                                                                multiplier:1.f constant:0.f],
+                                    [NSLayoutConstraint constraintWithItem:_indicatorView
+                                                                 attribute:NSLayoutAttributeCenterY
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.view
+                                                                 attribute:NSLayoutAttributeCenterY
+                                                                multiplier:1.f constant:0.f]
+                                    ]
+         
+         ];
+    }
+
     [_indicatorView startAnimating];
 }
 
@@ -240,6 +256,39 @@ void OnBrowserFinishedLoadingWithError(NSURLRequest *request, NSError *error) {
         self.navigationItem.title = _config.pageTitle;
     }
     
+    if (!_config.hidesHistoryButtons) {
+        UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2190"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(backwardButtonPressed)];
+        UIBarButtonItem* forwardButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2192"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(forwardButtonPressed)];
+        
+        if (backButtonAttrs) {
+            [backButton setTitleTextAttributes:backButtonAttrs forState:UIControlStateNormal];
+            [forwardButton setTitleTextAttributes:backButtonAttrs forState:UIControlStateNormal];
+        }
+        
+        backButton.enabled = NO;
+        forwardButton.enabled = NO;
+        
+        [self.navigationItem setRightBarButtonItems:@[forwardButton, backButton]];
+    }
+}
+    
+- (void)updateNavButtons {
+    NSArray *rightItems = self.navigationItem.rightBarButtonItems;
+    BOOL hasNavButtons = rightItems.count == 2;
+    
+    if (hasNavButtons) {
+        UIBarButtonItem *forward = rightItems[0];
+        UIBarButtonItem *back = rightItems[1];
+        
+        forward.enabled = [_webView canGoForward];
+        back.enabled = [_webView canGoBack];
+    }
 }
 
 - (NSDictionary *)createBackButtonTitleAttributes {
@@ -292,18 +341,49 @@ void OnBrowserFinishedLoadingWithError(NSURLRequest *request, NSError *error) {
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [_indicatorView stopAnimating];
+    [self updateNavButtons];
     OnBrowserFinishedLoading(webView.request);
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [_indicatorView stopAnimating];
+    [self updateNavButtons];
     OnBrowserFinishedLoadingWithError(webView.request, error);
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [self updateNavButtons];
+    OnBrowserStartedLoading(webView.request);
 }
 
 - (void)backButtonPressed {
     [self.navigationController.presentingViewController dismissViewControllerAnimated:true completion:^{
         OnBrowserClosed();
     }];
+}
+    
+- (void)backwardButtonPressed {
+    [_webView goBack];
+}
+    
+- (void)forwardButtonPressed {
+    [_webView goForward];
+}
+
+- (BOOL)canGoBack {
+    return [_webView canGoBack];
+}
+
+- (BOOL)canGoForward {
+    return [_webView canGoForward];
+}
+
+- (void)goBack {
+    [_webView goBack];
+}
+
+- (void)goForward {
+    [_webView goForward];
 }
 
 @end

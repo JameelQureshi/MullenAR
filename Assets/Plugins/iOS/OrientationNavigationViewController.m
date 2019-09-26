@@ -24,5 +24,27 @@
     return UIInterfaceOrientationMaskAll;
 }
 
+-(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
+{
+    if ( self.presentedViewController)
+    {
+        [super dismissViewControllerAnimated:flag completion:completion];
+    }
+}
 
+
+@end
+
+@interface StandardNavigationController ()
+
+@end
+
+@implementation StandardNavigationController
+-(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
+{
+    if ( self.presentedViewController)
+    {
+        [super dismissViewControllerAnimated:flag completion:completion];
+    }
+}
 @end

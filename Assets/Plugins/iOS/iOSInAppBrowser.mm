@@ -10,7 +10,15 @@
 #import "InAppBrowserViewController.h"
 #import "OrientationNavigationViewController.h"
 
+struct EdgeInsets {
+    int top;
+    int left;
+    int right;
+    int bottom;
+};
+
 struct DisplayOptions {
+    EdgeInsets insets;
     char *pageTitle;
     char *backButtonText;
     char *barBackgroundColor;
@@ -23,6 +31,15 @@ struct DisplayOptions {
     bool shouldUsePlaybackCategory;
     bool shouldStickToPortrait;
     bool shouldStickToLandscape;
+    bool androidBackButtonCustomBehaviour;
+    bool mixedContentCompatibilityMode;
+    bool webContentsDebuggingEnabled;
+    bool shouldUseWideViewPort;
+    bool hidesDefaultSpinner;
+    bool hidesHistoryButtons;
+    bool setLoadWithOverviewMode;
+    
+    char *historyButtonsFontSize;
     char *titleFontSize;
     char *titleLeftRightPadding;
     char *backButtonFontSize;
@@ -142,6 +159,19 @@ NSString *stringFromChar(char* bytes) {
     
     config.shouldStickToPortrait = options.shouldStickToPortrait;
     config.shouldStickToLandscape = options.shouldStickToLandscape;
+    
+    config.hidesHistoryButtons = options.hidesHistoryButtons;
+    
+    EdgeInsets insets = options.insets;
+
+    BOOL hasDefaultInsets = insets.left == 0 && insets.right == 0 && insets.top == 0 && insets.bottom == 0;
+    
+    if (!hasDefaultInsets) {
+        UIEdgeInsets uiEdgeInsets = UIEdgeInsetsMake(insets.left, insets.top, insets.bottom, insets.right);
+        config.insets = uiEdgeInsets;
+    }
+
+    
     return config;
 }
 
@@ -163,6 +193,26 @@ InAppBrowserViewController *GetInAppBrowserViewController() {
 
 extern "C" {
     
+    BOOL _CanGoForward() {
+        InAppBrowserViewController *browserVC = GetInAppBrowserViewController();
+        return [browserVC canGoForward];
+    }
+    
+    BOOL _CanGoBack() {
+        InAppBrowserViewController *browserVC = GetInAppBrowserViewController();
+        return [browserVC canGoBack];
+    }
+    
+    void _GoForward() {
+        InAppBrowserViewController *browserVC = GetInAppBrowserViewController();
+        [browserVC goForward];
+    }
+    
+    void _GoBack() {
+        InAppBrowserViewController *browserVC = GetInAppBrowserViewController();
+        [browserVC goBack];
+    }
+    
     BOOL _IsInAppBrowserOpened() {
         UnityAppController *unityAppController = GetAppController();
         if ([unityAppController.rootViewController.presentedViewController isKindOfClass:[UINavigationController class]]) {
@@ -179,7 +229,7 @@ extern "C" {
     
     void _PresentInAppBrowserViewController(InAppBrowserViewController *vc) {
         UnityAppController *unityAppController = GetAppController();
-    
+        
         InAppBrowserConfig *config = vc.config;
         UINavigationController *navigationController;
         if (config.shouldStickToLandscape || config.shouldStickToPortrait) {
@@ -188,10 +238,12 @@ extern "C" {
             orientationVC.shouldStickToLandscape = config.shouldStickToLandscape;
             orientationVC.shouldStickToPortrait = config.shouldStickToPortrait;
         } else {
-            navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+            navigationController = [[StandardNavigationController alloc] initWithRootViewController:vc];
         }
+        navigationController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        navigationController.view.backgroundColor = [UIColor clearColor];
         
-        
+        vc.view.layoutMargins = config.insets;
         [unityAppController.rootViewController presentViewController:navigationController animated:true completion:nil];
     }
     

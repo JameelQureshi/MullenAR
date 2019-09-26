@@ -12,3 +12,6 @@
 @property (nonatomic) BOOL shouldStickToPortrait;
 @property (nonatomic) BOOL shouldStickToLandscape;
 @end
+
+@interface StandardNavigationController : UINavigationController
+@end
