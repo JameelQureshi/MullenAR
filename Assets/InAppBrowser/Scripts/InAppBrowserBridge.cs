@@ -18,8 +18,6 @@ public class InAppBrowserBridge : MonoBehaviour {
 
 	public BrowserLoadingCallback onBrowserFinishedLoading = new BrowserLoadingCallback();
 
-	public BrowserLoadingCallback onBrowserStartedLoading = new BrowserLoadingCallback();
-
 	public BrowserLoadingWithErrorCallback onBrowserFinishedLoadingWithError = new BrowserLoadingWithErrorCallback();
 
 	public UnityEvent onBrowserClosed = new UnityEvent();
@@ -33,11 +31,6 @@ public class InAppBrowserBridge : MonoBehaviour {
 
 	void OnBrowserFinishedLoading(string url) {
 		Debug.Log("InAppBrowser: FinishedLoading " + url);
-		onBrowserFinishedLoading.Invoke(url);
-	}
-
-	void OnBrowserStartedLoading(string url) {
-		Debug.Log("InAppBrowser: StartedLoading " + url);
 		onBrowserFinishedLoading.Invoke(url);
 	}
 

@@ -26,13 +26,10 @@
 @property (nonatomic) BOOL shouldUsePlaybackCategory;
 @property (nonatomic) BOOL shouldStickToPortrait;
 @property (nonatomic) BOOL shouldStickToLandscape;
-@property (nonatomic) BOOL hidesDefaultSpinner;
-@property (nonatomic) BOOL hidesHistoryButtons;
 @property (nonatomic) NSString *titleFontSize;
 @property (nonatomic) NSString *titleLeftRightPadding;
 @property (nonatomic) NSString *backButtonFontSize;
 @property (nonatomic) NSString *backButtonLeftRightMargin;
-@property (nonatomic) UIEdgeInsets insets;
 
 + (InAppBrowserConfig *)defaultDisplayOptions;
 
@@ -50,10 +47,4 @@
 @property (nonatomic) NSString *initialCategory;
 
 - (void)sendJSMessage: (NSString *)message;
-
-- (BOOL)canGoBack;
-- (BOOL)canGoForward;
-- (void)goBack;
-- (void)goForward;
-
 @end
