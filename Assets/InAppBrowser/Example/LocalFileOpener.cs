@@ -31,6 +31,16 @@ public class LocalFileOpener : MonoBehaviour {
         options.hidesTopBar = false;
         InAppBrowser.OpenLocalFile(pathToFile, options);
     }
+    public void OpenAboutUs(string pathToFile)
+    {
+        InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions
+        {
+            displayURLAsPageTitle = false,
+            pageTitle = "About"
+        };
+        options.hidesTopBar = false;
+        InAppBrowser.OpenLocalFile(pathToFile, options);
+    }
 
 
 }
