@@ -22,6 +22,7 @@ public class HTMLPageOpener : MonoBehaviour
         };
         InAppBrowser.OpenLocalFile(pathToFile, options);
     }
+<<<<<<< HEAD:Assets/Scripts/HTMLPageOpener.cs
     public void OpenInvestment(string pathToFile)
     {
         InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions
@@ -40,5 +41,8 @@ public class HTMLPageOpener : MonoBehaviour
         };
         InAppBrowser.OpenLocalFile(pathToFile, options);
     }
+=======
+
+>>>>>>> parent of 027af9d... Adding About HTML page:Assets/InAppBrowser/Example/LocalFileOpener.cs
 
 }
