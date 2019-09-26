@@ -9,21 +9,28 @@ public class LocalFileOpener : MonoBehaviour {
 	 * This path is relative to it, meaning full path will be 
 	 * /StreamingAssets/LocalSite/index.html
 	 * */
-	public string pathToFile = "/LocalSite/index.html";
+	
 
-	public string htmlToLoad = "<p>Hello HTML!</p>";
-
-	public void OnButtonClicked() {
-		InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions();
-		options.displayURLAsPageTitle = false;
-		options.pageTitle = "Local File Example";
-		InAppBrowser.OpenLocalFile(pathToFile, options);
+	public void OpenInvestmentPage(string pathToFile) {
+        InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions
+        {
+            displayURLAsPageTitle = false,
+            pageTitle = "Investment"
+        };
+        options.hidesTopBar = false;
+        InAppBrowser.OpenLocalFile(pathToFile, options);
 	}
 
-	public void OnHTMLClicked() {
-		InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions();
-		options.displayURLAsPageTitle = false;
-		options.pageTitle = "HTML Example";
-		InAppBrowser.LoadHTML(htmlToLoad, options);
-	}
+    public void OpenLoungePage(string pathToFile)
+    {
+        InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions
+        {
+            displayURLAsPageTitle = false,
+            pageTitle = "Mullen Lounge"
+        };
+        options.hidesTopBar = false;
+        InAppBrowser.OpenLocalFile(pathToFile, options);
+    }
+
+
 }

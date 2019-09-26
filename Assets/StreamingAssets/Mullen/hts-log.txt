@@ -1,0 +1,139 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 25 Sep 2019 15:02:29 at https://mullenusa.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://mullenusa.com/ -O1 "E:\MullenUSA" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:03:37	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-includes/css/dist/block-library/style.min.css?ver=5.2.1 (from https://mullenusa.com/)
+15:04:16	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/smile_fonts/linearicons/linearicons.css?ver=5.2.1 (from https://mullenusa.com/)
+15:08:08	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/01/Reserve-now-btn.png (from https://mullenusa.com/)
+15:08:08	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.min.css?ver=5.6 (from https://mullenusa.com/)
+15:08:09	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/themes/hazel/css/hazel-custom.css?ver=5.2.1 (from https://mullenusa.com/)
+15:08:12	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-users.js?ver=1.9.2 (from https://mullenusa.com/)
+15:08:12	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-includes/js/comment-reply.min.js?ver=5.2.1 (from https://mullenusa.com/)
+15:08:13	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/themes/hazel/css/font-awesome/fa-solid-900.eot? (from https://mullenusa.com/wp-content/themes/hazel/css/icons-font.css?ver=5.2.1)
+15:08:13	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/themes/hazel/css/font-awesome/fa-solid-900.woff2 (from https://mullenusa.com/wp-content/themes/hazel/css/icons-font.css?ver=5.2.1)
+15:08:14	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/images/sprite.png (from https://mullenusa.com/wp-content/themes/hazel/editor-style.css?ver=5.2.1)
+15:08:14	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/themes/hazel/icon-fonts/WooCommerce.eot? (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:14	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/themes/hazel/icon-fonts/WooCommerce.ttf (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/icons/credit-cards/visa.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/icons/credit-cards/mastercard.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/icons/credit-cards/laser.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/icons/credit-cards/diners.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/icons/credit-cards/maestro.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/icons/credit-cards/jcb.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/icons/credit-cards/amex.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/icons/credit-cards/discover.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/ajax-loader@2x.gif (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/img/shopping-bag.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/img/woo-sucess.png (from https://mullenusa.com/wp-content/themes/hazel/css/hazel-woocommerce.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/css/ytp-regular.eot (from https://mullenusa.com/wp-content/themes/hazel/css/mb.YTPlayer.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/css/ytp-regular.ttf (from https://mullenusa.com/wp-content/themes/hazel/css/mb.YTPlayer.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/raster.png (from https://mullenusa.com/wp-content/themes/hazel/css/mb.YTPlayer.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/raster@2x.png (from https://mullenusa.com/wp-content/themes/hazel/css/mb.YTPlayer.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/raster_dot.png (from https://mullenusa.com/wp-content/themes/hazel/css/mb.YTPlayer.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/raster_dot@2x.png (from https://mullenusa.com/wp-content/themes/hazel/css/mb.YTPlayer.css?ver=5.2.1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/images/grabbing.png (from https://mullenusa.com/wp-content/themes/hazel/style.css?ver=1)
+15:08:16	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/themes/hazel/grabbing.png (from https://mullenusa.com/wp-content/themes/hazel/style.css?ver=1)
+15:08:16	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/plugins/contact-form-7/images/ajax-loader.gif (from https://mullenusa.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.1)
+15:08:16	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/plugins/Ultimate_VC_Addons/assets/images/cover.jpg (from https://mullenusa.com/wp-content/plugins/Ultimate_VC_Addons/assets/min-css/ultimate.min.css?ver=5.2.1)
+15:08:17	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/smile_fonts/Defaults/Defaults.eot? (from https://mullenusa.com/wp-content/uploads/smile_fonts/Defaults/Defaults.css?ver=5.2.1)
+15:08:21	Warning: 	Moved Permanently for https://mullenusa.com/?p=24
+15:08:21	Warning: 	File has moved from https://mullenusa.com/?p=24 to https://mullenusa.com/about/
+15:08:21	Warning: 	Moved Permanently for https://mullenusa.com/?p=11506
+15:08:21	Warning: 	File has moved from https://mullenusa.com/?p=11506 to https://mullenusa.com/contact/
+15:08:21	Warning: 	Moved Permanently for https://mullenusa.com/?p=11596
+15:08:21	Warning: 	File has moved from https://mullenusa.com/?p=11596 to https://mullenusa.com/media-k50/
+15:08:21	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/04/NYIAS-Arrow-Img@2x.png (from https://mullenusa.com/media-k50/)
+15:08:25	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/04/press-release.pdf (from https://mullenusa.com/media-k50/)
+15:08:25	Warning: 	Moved Permanently for https://mullenusa.com/?p=2
+15:08:25	Warning: 	File has moved from https://mullenusa.com/?p=2 to https://mullenusa.com/qiantu-k50-h/
+15:09:32	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/01/bg-4.jpg (from https://mullenusa.com/qiantu-k50-h/)
+15:09:32	Warning: 	Moved Permanently for https://mullenusa.com/?p=11320
+15:09:32	Warning: 	File has moved from https://mullenusa.com/?p=11320 to https://mullenusa.com/reserve-qiantu-k50/
+15:09:32	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/01/thumb-3.png (from https://mullenusa.com/reserve-qiantu-k50/)
+15:09:32	Warning: 	Moved Permanently for https://mullenusa.com/?p=11828
+15:09:32	Warning: 	File has moved from https://mullenusa.com/?p=11828 to https://mullenusa.com/mullen-lounge-point/
+15:09:32	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/05/mlp-top1.jpg (from https://mullenusa.com/mullen-lounge-point/)
+15:09:32	Warning: 	Moved Permanently for https://mullenusa.com/?p=10320
+15:09:32	Warning: 	File has moved from https://mullenusa.com/?p=10320 to https://mullenusa.com/news-articles-mullen-electric-cars/
+15:10:11	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/2019/04/29/mullen-technologies-qiantu-k50-washington-state/ (from https://mullenusa.com/news-articles-mullen-electric-cars/)
+15:10:13	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/04/header-1920-1280.jpg (from https://mullenusa.com/news-articles-mullen-electric-cars/)
+15:10:20	Warning: 	Moved Permanently for https://mullenusa.com/?p=103
+15:10:20	Warning: 	File has moved from https://mullenusa.com/?p=103 to https://mullenusa.com/investors/
+15:10:23	Warning: 	Retry after error -2 (Receive Time Out) at link https://mullenusa.com/wp-content/plugins/Ultimate_VC_Addons/assets/min-js/slick.min.js?ver=3.17.1 (from https://mullenusa.com/financing/)
+15:10:23	Warning: 	Moved Permanently for https://mullenusa.com/?p=26
+15:10:23	Warning: 	File has moved from https://mullenusa.com/?p=26 to https://mullenusa.com/financing/
+15:10:23	Warning: 	Moved Permanently for https://mullenusa.com/?p=119
+15:10:23	Warning: 	File has moved from https://mullenusa.com/?p=119 to https://mullenusa.com/government/
+15:10:23	Warning: 	Moved Permanently for https://mullenusa.com/?p=42
+15:10:23	Warning: 	File has moved from https://mullenusa.com/?p=42 to https://mullenusa.com/keepintouch/
+15:10:23	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-users.js?ver=1.9.2 (from https://mullenusa.com/)
+15:10:23	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/themes/hazel/css/font-awesome/fa-solid-900.eot? (from https://mullenusa.com/wp-content/themes/hazel/css/icons-font.css?ver=5.2.1)
+15:10:23	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/themes/hazel/css/font-awesome/fa-solid-900.woff2 (from https://mullenusa.com/wp-content/themes/hazel/css/icons-font.css?ver=5.2.1)
+15:10:23	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/smile_fonts/Defaults/Defaults.eot? (from https://mullenusa.com/wp-content/uploads/smile_fonts/Defaults/Defaults.css?ver=5.2.1)
+15:10:24	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/04/press-release.pdf (from https://mullenusa.com/media-k50/)
+15:10:36	Warning: 	Moved Permanently for https://mullenusa.com/?p=12068
+15:10:36	Warning: 	File has moved from https://mullenusa.com/?p=12068 to https://mullenusa.com/2019/09/10/mullen-technologies-purchases-first-northern-california-retail-location/
+15:10:36	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/category/uncategorized (from https://mullenusa.com/2019/09/10/mullen-technologies-purchases-first-northern-california-retail-location/)
+15:10:36	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/2019/08/ (from https://mullenusa.com/2019/09/10/mullen-technologies-purchases-first-northern-california-retail-location/)
+15:10:36	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/2019/07/ (from https://mullenusa.com/2019/09/10/mullen-technologies-purchases-first-northern-california-retail-location/)
+15:10:40	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/2019/05/ (from https://mullenusa.com/2019/09/10/mullen-technologies-purchases-first-northern-california-retail-location/)
+15:10:41	Warning: 	Moved Permanently for https://mullenusa.com/?p=12038
+15:10:41	Warning: 	File has moved from https://mullenusa.com/?p=12038 to https://mullenusa.com/2019/08/12/mullen-usa-to-make-pebble-beach-debut-with-k50-electric-luxury-sports-car/
+15:10:42	Warning: 	Moved Permanently for https://mullenusa.com/?p=12025
+15:10:42	Warning: 	File has moved from https://mullenusa.com/?p=12025 to https://mullenusa.com/2019/07/13/above-new-york-the-qiantu-k50-by-mullen-at-the-2019-new-york-city-e-prix/
+15:10:42	Warning: 	Moved Permanently for https://mullenusa.com/?p=11997
+15:10:42	Warning: 	File has moved from https://mullenusa.com/?p=11997 to https://mullenusa.com/2019/06/17/qiantu-k50-by-mullen-wins-governor-choice-award-balboa-bay-club/
+15:10:42	Warning: 	Moved Permanently for https://mullenusa.com/?p=11976
+15:10:42	Warning: 	File has moved from https://mullenusa.com/?p=11976 to https://mullenusa.com/2019/06/02/mullen-technologies-backing-up-successful-indy-500-with-the-2019-detroit-gran-prix/
+15:10:42	Warning: 	Moved Permanently for https://mullenusa.com/?p=11941
+15:10:42	Warning: 	File has moved from https://mullenusa.com/?p=11941 to https://mullenusa.com/2019/05/28/mullen-technologies-indy-500-tv-ad-breaks-internet/
+15:10:42	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/2019/05/28/mullen-technologies-indy-500-tv-ad-breaks-internet/?author=1 (from https://mullenusa.com/2019/05/28/mullen-technologies-indy-500-tv-ad-breaks-internet/)
+15:10:42	Warning: 	Moved Permanently for https://mullenusa.com/?p=11906
+15:10:42	Warning: 	File has moved from https://mullenusa.com/?p=11906 to https://mullenusa.com/2019/05/17/mullen-technologies-purchases-premier-dealership-location/
+15:10:43	Warning: 	Moved Permanently for https://mullenusa.com/?p=11765
+15:10:43	Warning: 	File has moved from https://mullenusa.com/?p=11765 to https://mullenusa.com/2019/04/17/qiantuk50-mullen-2019-new-york-international-auto-show/
+15:10:43	Warning: 	Moved Permanently for https://mullenusa.com/?p=11556
+15:10:43	Warning: 	File has moved from https://mullenusa.com/?p=11556 to https://mullenusa.com/2019/03/28/american-debut-qiantu-k50-new-york-international-autoshow/
+15:10:47	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/01/Mullen-Qiantu-Signing.jpg (from https://mullenusa.com/news-articles-mullen-electric-cars/page/2/)
+15:10:48	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/wp-content/uploads/2019/01/Shanghai.jpg (from https://mullenusa.com/news-articles-mullen-electric-cars/page/2/)
+15:10:49	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://mullenusa.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-users.js?ver=1.9.2 (from https://mullenusa.com/)
+15:10:49	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://mullenusa.com/wp-content/themes/hazel/css/font-awesome/fa-solid-900.eot? (from https://mullenusa.com/wp-content/themes/hazel/css/icons-font.css?ver=5.2.1)
+15:10:49	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://mullenusa.com/wp-content/themes/hazel/css/font-awesome/fa-solid-900.woff2 (from https://mullenusa.com/wp-content/themes/hazel/css/icons-font.css?ver=5.2.1)
+15:10:49	Warning: 	Moved Permanently for https://mullenusa.com/category/uncategorized
+15:10:49	Warning: 	File has moved from https://mullenusa.com/category/uncategorized to https://mullenusa.com/category/uncategorized/
+15:10:49	Error: 	Unable to save file E:/MullenUSA/mullenusa.com/category/uncategorized: Permission denied
+15:10:49	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/2019/ (from https://mullenusa.com/2019/09/)
+15:10:49	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/?author=2 (from https://mullenusa.com/2019/09/)
+15:10:51	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/2019/08/ (from https://mullenusa.com/2019/09/10/mullen-technologies-purchases-first-northern-california-retail-location/)
+15:10:51	Warning: 	Moved Permanently for https://mullenusa.com/?author=1
+15:10:51	Warning: 	File has moved from https://mullenusa.com/?author=1 to https://mullenusa.com/author/mullendev/
+15:10:51	Warning: 	Moved Permanently for https://mullenusa.com/?author=3
+15:10:51	Warning: 	File has moved from https://mullenusa.com/?author=3 to https://mullenusa.com/author/jason/
+15:10:53	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/2019/05/ (from https://mullenusa.com/2019/09/10/mullen-technologies-purchases-first-northern-california-retail-location/)
+15:10:54	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/category/uncategorized/feed/ (from https://mullenusa.com/category/uncategorized/)
+15:10:54	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/2019/05/28/mullen-technologies-indy-500-tv-ad-breaks-internet/?author=1 (from https://mullenusa.com/2019/05/28/mullen-technologies-indy-500-tv-ad-breaks-internet/)
+15:10:54	Warning: 	Moved Permanently for https://mullenusa.com/?p=11782
+15:10:54	Warning: 	File has moved from https://mullenusa.com/?p=11782 to https://mullenusa.com/2019/04/29/mullen-technologies-qiantu-k50-washington-state/
+15:10:54	Warning: 	Moved Permanently for https://mullenusa.com/?p=11545
+15:10:54	Warning: 	File has moved from https://mullenusa.com/?p=11545 to https://mullenusa.com/2019/03/23/future-of-electric-supercars-in-usa/
+15:10:54	Warning: 	Moved Permanently for https://mullenusa.com/?p=11078
+15:10:54	Warning: 	File has moved from https://mullenusa.com/?p=11078 to https://mullenusa.com/2018/12/12/mullen-technologies-ca-and-qiantu-motor-ltd-china-have-signed-a-partnership-agreement-to-co-develop-assemble-and-exclusively-market-the-qiantu-k50-in-north-america/
+15:10:54	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/uploads/Qiantu-Moreno-Valley-2-1.jpg (from https://mullenusa.com/2018/12/12/mullen-technologies-ca-and-qiantu-motor-ltd-china-have-signed-a-partnership-agreement-to-co-develop-assemble-and-exclusively-market-the-qiantu-k50-in-north-america/)
+15:10:54	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/uploads/K50-e1544635567941.png (from https://mullenusa.com/2018/12/12/mullen-technologies-ca-and-qiantu-motor-ltd-china-have-signed-a-partnership-agreement-to-co-develop-assemble-and-exclusively-market-the-qiantu-k50-in-north-america/)
+15:10:54	Warning: 	Moved Permanently for https://mullenusa.com/?p=11075
+15:10:54	Warning: 	File has moved from https://mullenusa.com/?p=11075 to https://mullenusa.com/2018/11/20/mullen-technologies-announces-the-opening-of-its-suzhou-shanghai-regional-offices-and-the-hiring-of-qingyuan-hu-phd-as-strategic-program-manager/
+15:10:54	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/uploads/Qingyuan-photo-244x300.jpg (from https://mullenusa.com/2018/11/20/mullen-technologies-announces-the-opening-of-its-suzhou-shanghai-regional-offices-and-the-hiring-of-qingyuan-hu-phd-as-strategic-program-manager/)
+15:10:54	Error: 	"Not Found" (404) at link https://mullenusa.com/wp-content/uploads/China_Suzhou_Jinjihu_Lake-300x200.jpg (from https://mullenusa.com/2018/11/20/mullen-technologies-announces-the-opening-of-its-suzhou-shanghai-regional-offices-and-the-hiring-of-qingyuan-hu-phd-as-strategic-program-manager/)
+15:10:54	Warning: 	Moved Permanently for https://mullenusa.com/?p=11060
+15:10:54	Warning: 	File has moved from https://mullenusa.com/?p=11060 to https://mullenusa.com/2018/10/26/carhub-now-a-subsidiary-of-mullen-technologies/
+15:10:54	Warning: 	Moved Permanently for https://mullenusa.com/?author=2
+15:10:54	Warning: 	File has moved from https://mullenusa.com/?author=2 to https://mullenusa.com/author/kamran/
+15:10:58	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/author/kamran/ (from https://mullenusa.com/?author=2)
+15:10:59	Warning: 	Retry after error -4 (No data (connection closed)) at link https://mullenusa.com/author/kamran/ (from https://mullenusa.com/?author=2)
+
+HTTrack Website Copier/3.49-2 mirror complete in 8 minutes 31 seconds : 500 links scanned, 401 files written (248020437 bytes overall) [241049744 bytes received at 471721 bytes/sec], 9184840 bytes transferred using HTTP compression in 190 files, ratio 22%, 7.1 requests per connection
+(28 errors, 100 warnings, 0 messages)
