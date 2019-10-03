@@ -41,5 +41,14 @@ public class HTMLPageOpener : MonoBehaviour
         };
         InAppBrowser.OpenLocalFile(pathToFile, options);
     }
+    public void OpenNews(string pathToFile)
+    {
+        InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions
+        {
+            displayURLAsPageTitle = false,
+            pageTitle = "News"
+        };
+        InAppBrowser.OpenLocalFile(pathToFile, options);
+    }
 
 }
