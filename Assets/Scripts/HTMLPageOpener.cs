@@ -50,5 +50,14 @@ public class HTMLPageOpener : MonoBehaviour
         };
         InAppBrowser.OpenLocalFile(pathToFile, options);
     }
+    public void ReserveNow(string pathToFile)
+    {
+        InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions
+        {
+            displayURLAsPageTitle = false,
+            pageTitle = "Reserve Now"
+        };
+        InAppBrowser.OpenLocalFile(pathToFile, options);
+    }
 
 }
